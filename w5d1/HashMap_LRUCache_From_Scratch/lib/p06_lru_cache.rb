@@ -14,14 +14,14 @@ class LRUCache
   end
 
   def get(key)
+    v = @prc.call(key)
     if !@map.include?(key)
-      v = @prc.call(key)
       @store.append(key,v)
-      @map.set(key, @store[key])
+      @map.set(key, @store.last)
     else
       @store.remove(key)
       @store.append(key,v)
-      @map.set(key, @store[key])
+      @map.set(key, @store.last)
     end
     if @map.length < @max
         eject!
