@@ -248,6 +248,8 @@ def craiglockhart_to_sighthill
     JOIN
       routes AS c ON (b.company = c.company AND b.num = c.num)
     JOIN
+      stops stopb ON (b.stop_id = stopb.id)
+    JOIN
       stops stopc ON (c.stop_id = stopc.id)
     WHERE
       stopa.name = 'Craiglockhart' AND
