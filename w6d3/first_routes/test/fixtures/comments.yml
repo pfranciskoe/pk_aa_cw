@@ -1,11 +1,11 @@
 # == Schema Information
 #
-# Table name: artworks
+# Table name: comments
 #
-#  id        :bigint           not null, primary key
-#  title     :string           not null
-#  image_url :string           not null
-#  artist_id :integer          not null
+#  id         :bigint           not null, primary key
+#  body       :string           not null
+#  user_id    :integer          not null
+#  artwork_id :integer          not null
 #
 
 # This model initially had no columns defined. If you add columns to the
