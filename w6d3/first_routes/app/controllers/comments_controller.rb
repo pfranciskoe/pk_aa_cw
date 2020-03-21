@@ -15,8 +15,11 @@ class CommentsController < ApplicationController
     end
 
     def index
-        if comment_params
-        render json:Comment.all
+        if comment_params.key?(:user_id)
+            render json:Comment.where(user_id:comment_params[:user_id])
+        elsif comment_params.key?(:artwork_id)
+            render json:Comment.where(artwork_id:comment_params[:artwork_id])
+        end
     end
 
     private

@@ -5430,3 +5430,303 @@ Processing by CommentsController#index as */*
 Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 2.3ms)
 
 
+Started GET "/comments/" for ::1 at 2020-03-20 14:05:27 -0700
+Processing by CommentsController#index as */*
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: comment:
+  app/controllers/comments_controller.rb:29:in `comment_params'
+  app/controllers/comments_controller.rb:18:in `index'
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:06:34 -0700
+
+SyntaxError - syntax error, unexpected ':', expecting keyword_end
+            render: json: Comment.all
+                  ^
+/Users/peterkoe/Desktop/git_cw/w6d3/first_routes/app/controllers/comments_controller.rb:32: syntax error, unexpected end-of-input, expecting keyword_end:
+  app/controllers/comments_controller.rb:19:in `'
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:06:59 -0700
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:23
+Completed 200 OK in 53ms (Views: 10.8ms | ActiveRecord: 34.8ms)
+
+
+Started POST "/comments?comment[artwork_id]=45&comment[user_id]=74&comment[body]=wow%20what%20a%20pretty%20art" for ::1 at 2020-03-20 14:07:14 -0700
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"artwork_id"=>"45", "user_id"=>"74", "body"=>"wow what a pretty art"}}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 24.1ms)
+
+
+
+ArgumentError - '"Artwork must exist"' is not an ActiveModel-compatible object. It must implement :to_partial_path.:
+  app/controllers/comments_controller.rb:7:in `create'
+
+Started POST "/comments?comment[artwork_id]=45&comment[user_id]=76&comment[body]=wow%20what%20a%20pretty%20art" for ::1 at 2020-03-20 14:07:20 -0700
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"artwork_id"=>"45", "user_id"=>"76", "body"=>"wow what a pretty art"}}
+  [1m[35m (7.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mArtwork Load (1.8ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (3.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 17.4ms)
+
+
+
+ArgumentError - '"User must exist"' is not an ActiveModel-compatible object. It must implement :to_partial_path.:
+  app/controllers/comments_controller.rb:7:in `create'
+
+Started POST "/comments?comment[artwork_id]=46&comment[user_id]=76&comment[body]=wow%20what%20a%20pretty%20art" for ::1 at 2020-03-20 14:07:25 -0700
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"artwork_id"=>"46", "user_id"=>"76", "body"=>"wow what a pretty art"}}
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mArtwork Load (2.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (2.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 8.3ms)
+
+
+
+ArgumentError - '"User must exist"' is not an ActiveModel-compatible object. It must implement :to_partial_path.:
+  app/controllers/comments_controller.rb:7:in `create'
+
+Started GET "/users" for ::1 at 2020-03-20 14:07:58 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comments?comment[artwork_id]=46&comment[user_id]=72&comment[body]=wow%20what%20a%20pretty%20art" for ::1 at 2020-03-20 14:08:06 -0700
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"artwork_id"=>"46", "user_id"=>"72", "body"=>"wow what a pretty art"}}
+  [1m[36mComment Load (2.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:23
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/comments?comment[artwork_id]=46&comment[user_id]=72&comment[body]=wow%20what%20a%20pretty%20art" for ::1 at 2020-03-20 14:08:08 -0700
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"artwork_id"=>"46", "user_id"=>"72", "body"=>"wow what a pretty art"}}
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:23
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:08:25 -0700
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (6.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:23
+Completed 200 OK in 12ms (Views: 1.4ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:08:44 -0700
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (7.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:23
+Completed 200 OK in 12ms (Views: 4.0ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/comments?comment[artwork_id]=45&comment[user_id]=75&comment[body]=wow%20what%20a%20pretty%20a" for ::1 at 2020-03-20 14:08:51 -0700
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"artwork_id"=>"45", "user_id"=>"75", "body"=>"wow what a pretty a"}}
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mArtwork Load (2.0ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 7.7ms)
+
+
+
+ArgumentError - '"User must exist"' is not an ActiveModel-compatible object. It must implement :to_partial_path.:
+  app/controllers/comments_controller.rb:7:in `create'
+
+Started POST "/comments?comment[artwork_id]=45&comment[user_id]=71&comment[body]=wow%20what%20a%20pretty%20a" for ::1 at 2020-03-20 14:08:59 -0700
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"artwork_id"=>"45", "user_id"=>"71", "body"=>"wow what a pretty a"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 71], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mArtwork Load (0.9ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.6ms)
+
+
+
+ArgumentError - '"Artwork must exist"' is not an ActiveModel-compatible object. It must implement :to_partial_path.:
+  app/controllers/comments_controller.rb:7:in `create'
+
+Started POST "/comments?comment[artwork_id]=44&comment[user_id]=71&comment[body]=wow%20what%20a%20pretty%20a" for ::1 at 2020-03-20 14:09:04 -0700
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"artwork_id"=>"44", "user_id"=>"71", "body"=>"wow what a pretty a"}}
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 71], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mArtwork Load (3.6ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mComment Create (1.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "user_id", "artwork_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "wow what a pretty a"], ["user_id", 71], ["artwork_id", 44]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 76ms (Views: 1.4ms | ActiveRecord: 12.9ms)
+
+
+Started POST "/comments?comment[artwork_id]=44&comment[user_id]=71&comment[body]=wow%20what%20a%20pretty%20a" for ::1 at 2020-03-20 14:09:07 -0700
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"artwork_id"=>"44", "user_id"=>"71", "body"=>"wow what a pretty a"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 71], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mArtwork Load (1.6ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[36mComment Create (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("body", "user_id", "artwork_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "wow what a pretty a"], ["user_id", 71], ["artwork_id", 44]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:4
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/comments" for ::1 at 2020-03-20 14:09:17 -0700
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (10.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:23
+Completed 200 OK in 14ms (Views: 3.3ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:09:48 -0700
+Processing by CommentsController#index as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: comment:
+  app/controllers/comments_controller.rb:29:in `comment_params'
+  app/controllers/comments_controller.rb:18:in `index'
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:11:44 -0700
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:19
+Completed 400 Bad Request in 40ms (Views: 16.6ms | ActiveRecord: 12.1ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: comment:
+  app/controllers/comments_controller.rb:30:in `comment_params'
+  app/controllers/comments_controller.rb:21:in `index'
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:12:00 -0700
+Processing by CommentsController#index as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: comment:
+  app/controllers/comments_controller.rb:30:in `comment_params'
+  app/controllers/comments_controller.rb:21:in `index'
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:12:13 -0700
+Processing by CommentsController#index as */*
+No template found for CommentsController#index, rendering head :no_content
+Completed 204 No Content in 183ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:12:15 -0700
+Processing by CommentsController#index as */*
+No template found for CommentsController#index, rendering head :no_content
+Completed 204 No Content in 200ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/" for ::1 at 2020-03-20 14:12:24 -0700
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:19
+Completed 200 OK in 37ms (Views: 11.2ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/comments/comment[user_id]=71" for ::1 at 2020-03-20 14:15:24 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/comments/comment[user_id]=71"):
+  
+actionpack (5.2.4.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/comments?comment[user_id]=71" for ::1 at 2020-03-20 14:15:33 -0700
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"71"}}
+Completed 500 Internal Server Error in 323ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `user_id' for #<CommentsController:0x00007fea8f0314d0>
+Did you mean?  user_url:
+  app/controllers/comments_controller.rb:19:in `index'
+
+Started GET "/comments?comment[user_id]=71" for ::1 at 2020-03-20 14:18:36 -0700
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"user_id"=>"71"}}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 71]]
+  ↳ app/controllers/comments_controller.rb:19
+Completed 200 OK in 47ms (Views: 16.0ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/comments?comment[artwork_id]=44" for ::1 at 2020-03-20 14:18:56 -0700
+Processing by CommentsController#index as */*
+  Parameters: {"comment"=>{"artwork_id"=>"44"}}
+  [1m[36mComment Load (14.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 44]]
+  ↳ app/controllers/comments_controller.rb:21
+Completed 200 OK in 27ms (Views: 8.7ms | ActiveRecord: 14.4ms)
+
+
