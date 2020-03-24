@@ -1,0 +1,45 @@
+<h1>A single cat</h1>
+<li><a href="<%= cats_url %>"> Return to all cats</a></li>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2"><%= @kat.name %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Age</td>
+            <td><%= @kat.age %></td> 
+        </tr>
+         <tr>
+            <td>Birthday</td>
+            <td><%=@kat.birth_date%></td> 
+        </tr>
+         <tr>
+            <td>Color</td>
+            <td><%=@kat.color%></td> 
+        </tr>
+         <tr>
+            <td>Sex</td>
+            <td><%=@kat.sex%></td> 
+        </tr>
+    </tbody>
+</table>
+<p>Some more info:
+<%=@kat.description %>
+</p>
+<li><a href="<%= edit_cat_url %>"> Edit Cat</a></li>
+
+<style>
+    table,
+    td {
+        border: 1px solid #333;
+    }
+
+    thead,
+    tfoot {
+        background-color: #333;
+        color: #fff;
+    }
+</style>

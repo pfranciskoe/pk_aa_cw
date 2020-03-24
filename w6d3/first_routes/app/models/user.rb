@@ -23,3 +23,4 @@ validates :user_name, presence: true, uniqueness: true
     foreign_key: :user_id,
     class_name: :Comment
 end
+er
