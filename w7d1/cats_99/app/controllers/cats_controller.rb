@@ -30,7 +30,7 @@ class CatsController < ApplicationController
 
     def update
         @kat = Cat.find(params[:id])
-        if Cat.update(cat_params)
+        if @kat.update(cat_params)
             redirect_to cat_url(@kat)
         else
             render :edit 

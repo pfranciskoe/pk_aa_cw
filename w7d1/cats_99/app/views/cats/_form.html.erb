@@ -5,9 +5,6 @@
     <% action_url = cat_url(kat)%>
 <% end%>
 
-
-
-
 <form action="<%= action_url %>" method="POST">
 <% if action == :edit %>
     <input type="hidden" name="_method" value="PATCH">
