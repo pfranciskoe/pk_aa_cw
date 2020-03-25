@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+<% if logged_in? %>
+<form action="<%=session_url%>" method = "post">
+  <input type="hidden" name= "_method" value="delete">
+  <input type="submit" value= "log out">
+</form>
+<% else%>
+  <a href="<%=new_session_url%>"> Log In</a>
+<% end%>
+  <head>
+    <title>NinetyNineCats</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  
+  <body>
+    <%= yield %>
+  </body>
+</html>
