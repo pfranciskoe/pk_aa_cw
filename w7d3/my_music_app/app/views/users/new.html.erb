@@ -1,0 +1,14 @@
+<h1>Welcome!</h1>
+<h2>Please Create A Profile</h2>
+
+<form action="<%= users_url %>" method="Post">
+    <label for="user_email">
+    Email:
+        <input type="text" name="user[email]" id="user_email" value="<%=@user.email%>">
+    </label>
+     <label for="user_password">
+     Password:
+        <input type="password" name="user[password]" id="user_password" value="<%=@user.password%>">
+    </label>
+    <button type="submit">Register!</button>
+</form>

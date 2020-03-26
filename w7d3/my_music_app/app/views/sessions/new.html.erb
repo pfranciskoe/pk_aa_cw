@@ -1,0 +1,14 @@
+<h1>Please Log In</h1>
+<form action="<%= session_url %>" method="post">
+    
+    <label>
+    
+    Email:
+        <input type="text" name="user[email]">
+    </label>
+     <label>
+     Password:
+        <input type="password" name="user[password]">
+    </label>
+    <button type="submit">Login!</button>
+</form>
