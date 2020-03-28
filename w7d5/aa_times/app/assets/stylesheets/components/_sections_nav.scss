@@ -1,0 +1,17 @@
+
+.sections-nav ul li:hover {
+    background-color: $lightest-gray ;
+    text-decoration: underline;
+}
+.sections-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sections-nav ul li {
+       margin: 5px;
+}
+.sections-nav ul li:last-child {
+    font-size: 80%;
+    
+}
