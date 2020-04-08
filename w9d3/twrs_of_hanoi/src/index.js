@@ -1,5 +1,5 @@
-const HanoiGame = require("./game")
-
+const HanoiGame = require("./game.js")
+const HanoiView = require("./hanoi-view.js")
 
 $(() => {
   const rootEl = $('.hanoi');
@@ -7,6 +7,3 @@ $(() => {
   new HanoiView(game, rootEl);
 });
 
-HanoiGame.prototype.render(){
-
-};
