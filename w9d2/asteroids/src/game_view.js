@@ -21,6 +21,9 @@ GameView.prototype.bindKeyHandlers = function(){
     key('down',function(){shp.power([0, 1])});
     key('left',function(){shp.power([-1,0])});
     key('right',function(){shp.power([1, 0])});
+    key('space', function () {shp.fireBullet()});
+
+
 }
 
 module.exports = GameView;

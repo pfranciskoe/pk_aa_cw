@@ -13,7 +13,9 @@ Asteroid.prototype.collideWith = function(otherObject) {
   if (otherObject instanceof Ship) {
         otherObject.relocate();
   }
-  
+  if (otherObject instanceof Bullet) {
+    this.game.remove(this);
+  }
 };
 
 Asteroid.COLOR = '#723f3f';

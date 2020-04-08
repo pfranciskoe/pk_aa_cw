@@ -1,10 +1,11 @@
 const Asteroid = require("./asteroid.js");
 const Ship = require("./ship.js");
-
+const Bullet = require("./bullet.js")
 function Game(){
     this.asteroids = [];
     this.ship = new Ship({ pos: this.randomPosition(), game: this });
     this.addAsteroids();
+    this.bullets = [];
 }
 
 Game.DIM_X = 600;
@@ -46,6 +47,12 @@ Game.prototype.checkCollisions = function() {
           if (this.asteroids[j].isCollidedWith(this.ship)){
             this.asteroids[j].collideWith(this.ship);
           }
+          for(i=0;i<this.bullets.length; i++){
+            if (this.asteroids[j].isCollidedWith(this.bullets[i])) {
+                console.log("hit")
+                this.asteroids[j].collideWith(this.bullets[i]);
+            }
+        } 
       }
 };
 
@@ -63,9 +70,19 @@ Game.prototype.remove = function(asteroid) {
   }
   this.asteroids = ast;
 };
+
 Game.prototype.allObjects = function() {
     let objts = this.asteroids.concat([this.ship]);
-    return objts;
-    // console.log(objts);
+    let objo = objts.concat(this.bullets);
+    return objo;
+    // let objtsbull = objts.concat([this.bullets]);
+    // return objtsbull;
 };
+
+Game.prototype.isOutOfBounds = function(pos){
+    if (pos[0] > Game.DIM_X || pos[0] < 0 || pos[1] > Game.DIM_Y || pos[1] < 0) {
+        return true;
+    }
+};
+
 module.exports = Game;
