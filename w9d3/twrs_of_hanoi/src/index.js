@@ -6,3 +6,7 @@ $(() => {
   const game = new HanoiGame();
   new HanoiView(game, rootEl);
 });
+
+HanoiGame.prototype.render(){
+
+};
