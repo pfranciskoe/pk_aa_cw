@@ -32,3 +32,17 @@ function debounce(func, wait = 20, immediate = true) {
     if (callNow) func.apply(context, args);
   };
 }
+let imga = document.querySelectorAll('img');
+imga.forEach(img=>{
+  window.addEventListener('scroll',()=>{
+    let top = img.getBoundingClientRect()['top'];
+    let height = img.getBoundingClientRect()['height']
+    let bottomDistance = (window.pageYOffset + window.innerHeight)
+    console.log(`top=${top}`)
+    console.log(`height=${height}`)
+    console.log(`bottom=${bottomDistance}`)
+    if (top+(height/2) < bottomDistance) {
+      img.classList.add('active')
+      }
+  })
+})
