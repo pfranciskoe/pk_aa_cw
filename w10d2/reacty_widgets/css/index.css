@@ -1,0 +1,44 @@
+.clock {
+    justify-content: ;
+    font-family: 'Bangers', cursive;
+    font-size: 20px;
+    background-color:plum;
+    color: snow;
+    font-weight: 100;
+    border-style: double;
+    border-color: teal;
+    border-width: 3 px;
+    width: 200px;
+}
+
+p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.tab-heads {
+    
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+}
+.head{
+    font-size: medium;
+    border-color: slategrey;
+    border-style: groove;
+    background-color: skyblue;
+    border-radius: 50px;
+    border-width: 20px;
+}
+.tabs {
+    /* background-color: salmon; */
+    width: 50%;
+}
+.page {
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    
+
+}
