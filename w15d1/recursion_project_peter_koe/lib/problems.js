@@ -170,7 +170,12 @@ function flatten(data) {
 // fileFinder(desktop, 'everlong.flac');            // => true
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
 function fileFinder(directories, targetFile) {
-    if directories
+   for(let file in directories){
+       if ((file === targetFile) || (fileFinder(directories[file],targetFile) === true)){
+        return true
+    }
+   }
+   return false
 }
 
 
@@ -184,7 +189,7 @@ function fileFinder(directories, targetFile) {
 // pathFinder(desktop, 'everlong.flac'));       // => '/music/genres/rock/everlong.flac'
 // pathFinder(desktop, 'honeybadger.png'));     // => null
 function pathFinder(directories, targetFile) {
-
+   
 }
 
 
