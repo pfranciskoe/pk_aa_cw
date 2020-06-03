@@ -84,10 +84,19 @@ function pow(base, exponent) {
     if (exponent === 0) return 1;
     if (exponent === 1) return base;
     if (exponent < 0) {
-        return (1.00000 / ( pow(base, (exponent + 1)) * base))
+        return (1.00000 / (pow(base, Math.abs(exponent))))
     } else
     {return pow(base, exponent - 1) * base}
 }
+// function pow(base, exponent) {
+//     if (exponent === 0) return 1;
+
+//     if (exponent < 0) {
+//         return 1 / pow(base, Math.abs(exponent));
+//     } else {
+//         return base * pow(base, exponent - 1);
+//     }
+// }
 
 
 // A 1-dimensional array is also known as a flattened array.
@@ -169,14 +178,16 @@ function flatten(data) {
 // fileFinder(desktop, 'app_academy_logo.svg');     // => true
 // fileFinder(desktop, 'everlong.flac');            // => true
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
+
 function fileFinder(directories, targetFile) {
-   for(let file in directories){
-       if ((file === targetFile) || (fileFinder(directories[file],targetFile) === true)){
-        return true
+    for (let key in directories) {
+        if (key === targetFile || fileFinder(directories[key], targetFile)) {
+            return true
+        }
     }
-   }
-   return false
+    return false
 }
+
 
 
 // Write another function, pathFinder(directories, targetFile), that returns the path that contains the targetFile.
@@ -188,9 +199,18 @@ function fileFinder(directories, targetFile) {
 // pathFinder(desktop, 'trixie_lou.jpeg'));     // => '/images/pets/trixie_lou.jpeg'
 // pathFinder(desktop, 'everlong.flac'));       // => '/music/genres/rock/everlong.flac'
 // pathFinder(desktop, 'honeybadger.png'));     // => null
-function pathFinder(directories, targetFile) {
-   
-}
+    function pathFinder(directories, targetFile) {
+        for (let key in directories) {
+            if (key === targetFile) return '/'+targetFile;
+
+            let subdir = directories[key];
+            let result = pathFinder(subdir, targetFile)
+            if (result !== null) {
+                return key + result;
+            }
+        }
+        return null
+    }
 
 
 module.exports = {
