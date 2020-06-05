@@ -116,4 +116,3 @@ module.exports = {
     maxNonAdjacentSum,
     minChange
 };
-"quicksort"=
