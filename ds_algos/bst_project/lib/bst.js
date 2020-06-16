@@ -9,7 +9,7 @@ class TreeNode {
 
 class BST {
     constructor(){
-       this.root = null
+       this.root = null;
     }
     insert(val,root=this.root){
         if (!this.root){
@@ -17,19 +17,24 @@ class BST {
            return;
         }
         if (val < root.val){
-            if (this.left){
-                insert(val, this.left)
+            if (root.left){
+                this.insert(val, root.left)
             } else{
                 root.left = new TreeNode(val)
             }
         } else {
             if (root.right) {
-                insert(val, this.right)
+                this.insert(val, root.right)
             } else {
                 root.right = new TreeNode(val)
             }
         }
-
+    }
+    searchRecur(val,root=this.root){
+        if (!root){
+            return false
+        }
+        i
     }
 }
 
