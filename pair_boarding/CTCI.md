@@ -65,3 +65,11 @@
             }
             return array
         }
+
+        //1.4 Palindrome Permutations
+            Input = 'Tact Coa'
+            Output = True (taco cat) atco cta
+            
+            Depending on number of non space characters there needs to either be and even number of every character or there needs to only be one odd:
+            {t:2,c:2,a:2,o:1}
+            toLowercase()
