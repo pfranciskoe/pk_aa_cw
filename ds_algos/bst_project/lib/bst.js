@@ -31,10 +31,15 @@ class BST {
         }
     }
     searchRecur(val,root=this.root){
-        if (!root){
+        if (!root) {
             return false
         }
-        i
+        if (root.val = val) return true;
+        if (root.val < val){
+            return searchRecur(val,root.left)
+        } else {
+            return searchRecur(val, root.right)
+        }
     }
 }
 
