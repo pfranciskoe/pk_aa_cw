@@ -47,6 +47,21 @@
 
         function Urlify(array,length){
             let i = array.length;
-            let currentIdx = length-1
-            if
+            let currentIdx = length-1 + (zeroCount*2)
+            let zeroCount = 0;
+            for(let i = 0; i<length;i++){
+                if (array[i]===0) zeroCount++;
+            }
+            while (currentIdx >= 0){
+                if (array[currentIdx] === ' '){
+                    array[i] = '0';
+                    array[i-1] = '2';
+                    array[i-2] = '%';
+                    i = i - 3
+                } else {
+                    array[i] = array[currentIdx]
+                    i--
+                }
+            }
+            return array
         }
