@@ -73,3 +73,6 @@
             Depending on number of non space characters there needs to either be and even number of every character or there needs to only be one odd:
             {t:2,c:2,a:2,o:1}
             toLowercase()
+            Zach SOlved this
+
+        //1.5 One Away
