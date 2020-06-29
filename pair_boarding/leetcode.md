@@ -57,3 +57,4 @@ function quickSort(array){
     return [...quicksort(left),pivot,...quicksort(right)]
 }
 =>[-1,2,2,3,4,9,10]
+done
