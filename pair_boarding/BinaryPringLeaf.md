@@ -14,7 +14,7 @@ function(root){
             if node.left{
                 level.push(node.left)
                 finished = false
-            }
+            }   shohi9j uk k jr
             if node.right{
                 level.push(node.right)
                 finished = false
