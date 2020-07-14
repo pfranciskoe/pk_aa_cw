@@ -5,7 +5,7 @@ given 2d array find edges of a single island
     [0,1,1,0,0],
     [0,1,1,0,0],
     [0,0,0,0,0]
-] 
+] s=>0a
 
 => 10
 set edge counter to 0
