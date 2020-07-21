@@ -41,3 +41,4 @@ function prisonCells(prison,n){
     return prison;
 }
 
+cycles are key
