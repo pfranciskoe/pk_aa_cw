@@ -19,3 +19,4 @@ function printTree(root){
 
     return newLeft.concat(newRight);
 }
+left
