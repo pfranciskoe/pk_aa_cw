@@ -24,7 +24,36 @@ class MaxHeap {
         this.siftUp(this.array.length-1)
     }
     siftDown(idx){
-        
+        let arr = this.array
+
+        let leftIdx = this.getLeftChild(idx);
+        let rightIdx = this.getRightChild(idx);
+
+        let leftVal = this.array[leftIdx];
+        let rightVal = this.array[rightIdx];
+
+        if (rightVal === undefined){ rightVal = -Infinity};
+        if (leftVal === undefined){ leftVal = -Infinity};
+
+        if (arr[idx] > leftVal && arr[idx] > rightVal) return;
+
+        if (leftVal < rightVal){
+            var swapIdx = rightIdx;
+        } else {
+            var swapIdx = leftIdx;
+        }
+        [arr[idx], arr[swapIdx]] = [arr[swapIdx], arr[idx]]
+
+        this.siftDown(swapIdx);
+    }
+    deleteMax(){
+        let arr = this.array;
+        if (arr.length === 1) return null;
+        if (arr.length === 2) return this.array.pop()
+        let max = this.array[1]
+        this.array[1] = this.array.pop();
+        this.siftDown(1)
+        return max
     }
 }
 
