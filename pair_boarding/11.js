@@ -48,4 +48,4 @@ function solution1(string1, string2) {
     }
     return str1Length
 }
-/stretch
+//stretch
