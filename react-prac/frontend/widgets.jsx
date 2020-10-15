@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Clock from './clock';
 import Tabs from './tabs'
 import Autocomplete from './autocomplete'
-
+import Translator from './translator'
 const panes = [
     { title: 'one', content: 'I am the first' },
     { title: 'two', content: 'Second pane here' },
@@ -34,13 +34,21 @@ const names = [
   "Schmitt", "Schwager", "Schutz", "Schuster", "Tapia", "Thompson", 
   "Tiernan", "Tisler"
 ];
-
+const EnglishToSpanishDictionary = {
+  ball :'pelota',
+  house : 'casa',
+  dog : 'perro',
+  dogs : 'perros',
+  milk : 'leche',
+  orange : 'naranja'
+}
 function Root() {
   return(
     <div>
         <Clock />
         <Tabs panes={panes}/>
         <Autocomplete names={names}/>
+        <Translator dict={EnglishToSpanishDictionary}/>
     </div>
   );
 }
