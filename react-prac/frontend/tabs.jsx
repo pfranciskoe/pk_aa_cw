@@ -1,45 +1,49 @@
 import React from 'react';
-class Header extends React.Component{
+class Headers extends React.Component{
     render(){
+        const selected = this.props.selectedTab;
+        const headers = this.props.panes.map((pane,index)=>{
+            const title = pane.title;
+            const klass = index === selected ? 'active' : '';
+            return(
+                <li
+                key={index}
+                className={klass}
+                onClick={() => this.props.onTabChosen(index)}>
+                    { title }
+                </li>
+            )
+        });
+        return (
+            <ul className='tab-header'>
+                {headers}
+            </ul>
+        );
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default class Tabs extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            selectedTab:1
+            selectedTab:0
         };
         this.selectTab = this.selectTab.bind(this)
     };
-    selectTab(){}
+    selectTab(index){
+        this.setState({ selectedTab: index })  
+    }
     render(){
-        const tab1 = 'I am Tab 1'
-        const tab2 = 'I am not not Tab 2'
-        const tab3 = 'Some people call me Tab 3'
+        const pane = this.props.panes[this.state.selectedTab];
         return (
             <div className='table'>
-                <div className='tabs'>
-                    <div className='tab'>tab1</div>
-                    <div className='tab'>tab2</div>
-                    <div className='tab'>tab3</div>
-                </div>
+                <Headers
+                    selectedTab = {this.state.selectedTab}
+                    onTabChosen = {this.selectTab}
+                    panes = {this.props.panes}
+                />
                 <div className='tab-content'>
-
+                    {pane.content}
                 </div>
             </div>
             

@@ -15,19 +15,30 @@
 }
 /* TABS */
 .table{
+    display: flex;
+    flex-direction: column;
     width: 20vw;
 }
-.tabs{
+.tab-header{
     display: flex;
     flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-.tab{
+.tab-header li {
+    text-decoration: none;
     background-color: darksalmon;
     border-radius: 15px 15px 0px 0px;
     padding: 10px;
     width: calc(100%/3);
 }
 .tab-content{
+    padding: 5px;
     background-color: darksalmon;
     height: 20vh;
+}
+.active{
+    border: 2px solid rgb(240, 136, 101);
+    border-width: 2px 2px 0px 2px;
 }
